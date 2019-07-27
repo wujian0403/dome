@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.DepartmentsDao">
+	<resultMap type="com.example.demo.pojo.Departments" id="Departments">
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="site" property="site"/>
+		<collection property="users"  column="id" select="GetUser"></collection>
+	</resultMap>
+	<select id="querAll" resultMap="Departments">
+		SELECT * FROM `departments`
+	</select>
+	
+	<select id="GetUser" resultType="com.example.demo.pojo.User">
+		select * from user where  depar_id = #{0}
+	</select>
+</mapper>
