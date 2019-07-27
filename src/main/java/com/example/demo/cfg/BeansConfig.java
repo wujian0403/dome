@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import com.github.pagehelper.PageHelper;
 
 @Configuration
-@MapperScan(basePackages = { "com.accp.xxmis.dao" })
+@MapperScan(basePackages = { "com.example.demo.dao" })
 public class BeansConfig {
 	
 	@Bean
